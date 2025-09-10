@@ -110,7 +110,8 @@ export default async function signClickTx(
   const preparedTransaction = await walletClient.prepareTransactionRequest({
     to: COOKIE_CLICKER_CONTRACT_ADDRESS as `0x${string}`,
     data: toFunctionSelector("click()"),
-    type: "eip712",
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    type: "eip712" as any,
     chain,
     nonce,
     chainId: chain.id,
