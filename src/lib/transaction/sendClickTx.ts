@@ -205,7 +205,7 @@ export async function sendRawTransactionWithDetailedOutput(
     body: JSON.stringify({
       jsonrpc: "2.0",
       id: 1,
-      method: "zks_sendRawTransactionWithDetailedOutput",
+      method: "unstable_sendRawTransactionWithDetailedOutput",
       params: [signedTransaction],
     }),
   });
