@@ -1,10 +1,15 @@
-import { abstractTestnet, abstract } from "viem/chains";
+import { abstractTestnet, abstract, type ChainEIP712 } from "viem/chains";
 import { getGeneralPaymasterInput } from "viem/zksync";
 
 // export const IS_PRODUCTION = process.env.NODE_ENV === "production";
 export const IS_PRODUCTION = false; // force to testnet
 
-export const chain = IS_PRODUCTION ? abstract : abstractTestnet;
+const _chain = IS_PRODUCTION ? abstract : abstractTestnet;
+
+export const chain: ChainEIP712 = {
+  ..._chain,
+  blockTime: 200,
+}
 
 export const API_URL = IS_PRODUCTION
   ? "https://api.mainnet.abs.xyz"

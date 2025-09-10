@@ -21,8 +21,7 @@ const TransactionMonitor: React.FC<TransactionMonitorProps> = ({
 }) => {
   const { data, isSuccess, isError, error } = useWaitForTransactionReceipt({
     hash: txHash,
-    chainId: chainId,
-    pollingInterval: 500,
+    chainId: chainId
   });
 
   useEffect(() => {
